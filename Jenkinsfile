@@ -3,7 +3,6 @@ pipeline {
 	agent any
 	environment {
 		DOCKERHUB_CREDS = credentials('docker')
-		jenkins_k8s_ssh_key = credentials('jenkins-k8s-ssh-key')	
         }
 	stages {
 		stage('Docker image build') {
@@ -41,7 +40,7 @@ pipeline {
 
 		stage('Deploy') {
 			steps { 
-				sshagent(['jenkins_k8s_ssh_key']) {
+				sshagent(['jenkins-k8s-ssh-key']) {
 					sh 'kubectl create deployment cw2-server-v1 --image=martinmacd/server-cw2-v1:latest'
 				}
 			}
