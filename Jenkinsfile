@@ -8,7 +8,7 @@ pipeline {
 		stage('Docker image build') {
 			steps {
 				echo 'Building docker image'
-				sh ' docker build --tag martinmacd/server-cw2-v:0.1 .'
+				sh ' docker build --tag martinmacd/server-cw2-v1 .'
 				echo 'Docker image built succesfully'
 			}
 		}
@@ -18,7 +18,7 @@ pipeline {
 				echo 'Testing docker image'
 				sh '''
 					docker image inspect martinmacd/server-cw2-v1:0.1
-					docker run --name test-container -p 8080:8080 -d martinmacd/server-cw2-v1:0.1
+					docker run --name test-container -p 8080:8080 -d martinmacd/server-cw2-v1
 					docker ps
 					docker stop test-container
 					docker rm test-container
@@ -34,7 +34,7 @@ pipeline {
 
 		stage('Dockerhub image push') {
 			steps {
-				sh 'docker push martinmacd/server-cw2-v1:0.1'
+				sh 'docker push martinmacd/server-cw2-v1'
 			}
 		}
 
