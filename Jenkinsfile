@@ -5,7 +5,7 @@ pipeline {
 		DOCKERHUB_CREDS = credentials('docker')
 	}
 	stages {
-		stages('Docker image build') {
+		stage('Docker image build') {
 			steps {
 				echo 'Building docker image'
 				sh ' docker build --tag martinmacd/server-cw2-v:0.1 .'
