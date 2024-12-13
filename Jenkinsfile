@@ -3,7 +3,8 @@ pipeline {
 	agent any
 	environment {
 		DOCKERHUB_CREDS = credentials('docker')
-	}
+		jenkins-k8s-ssh-key = credentials('jenkins-k8s-ssh-key')	
+        }
 	stages {
 		stage('Docker image build') {
 			steps {
