@@ -1,4 +1,4 @@
-//Jenkinsfile:) (Declarative pipeline)
+//Jenkinsfile (Declarative pipeline)
 pipeline {
 	agent any
 	environment {
