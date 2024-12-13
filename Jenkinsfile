@@ -41,7 +41,7 @@ pipeline {
 		stage('Deploy') {
 			steps { 
 				sshagent(['jenkins-k8s-ssh-key']) {
-					sh 'kubectl create deployment cw2-server-v1 --image=martinmacd/server-cw2-v1:latest'
+					sh '/snap/bin/kubectl create deployment cw2-server-v1 --image=martinmacd/server-cw2-v1:latest'
 				}
 			}
 		}
