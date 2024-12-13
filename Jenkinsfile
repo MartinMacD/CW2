@@ -34,7 +34,7 @@ pipeline {
 
 		stage('Dockerhub image push') {
 			steps {
-				sh 'docker push martinmacd/server-cw2-v1:0.1
+				sh 'docker push martinmacd/server-cw2-v1:0.1'
 			}
 		}
 
